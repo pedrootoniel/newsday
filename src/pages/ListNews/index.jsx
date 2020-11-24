@@ -1,32 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { CenterStyled } from './style';
-import Header from '../Header';
+import Header from '../../Components/Header';
 import api from '../../services/api';
 
-function Center() {
+function ListNews() {
 
   const [news, setNews] = useState([]);
 
   useEffect(() => {
     api.get('/news').then((resp) => {
-
-      console.log(resp.data);
       if (resp.data.success) return setNews(resp.data.news);
       alert(resp.data.message);
-
     }).catch((err) => {
-      console.log(err);
       alert('Erro ao buscar a lista de notícias');
     });
   }, []);
 
   return (
-
     <>
       <Header />
       <CenterStyled>
-
         {
           news.map(newsMap => (
             <Link to={`/news/${newsMap.id}`} key={newsMap.id}>
@@ -39,10 +33,9 @@ function Center() {
             </Link>
           ))
         }
-
       </CenterStyled>
     </>
   )
 }
 
-export default Center;
+export default ListNews;

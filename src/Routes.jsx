@@ -1,25 +1,15 @@
 import React from 'react';
-import { BrowserRouter,Route } from 'react-router-dom'
-import Center from './Components/Center'
-import ReadNews from './Components/ReadNew'
-
-
-
-// import { Container } from './styles';
+import { BrowserRouter, Route } from 'react-router-dom'
+import ListNews from './pages/ListNews'
+import News from './pages/News'
 
 function Routes() {
-  return(
-    
+  return (
     <BrowserRouter>
-        <Route path="/" exact component={Center} />
-
-        <Route path="/news/:id" component={ReadNews} />
+      <Route path="/" exact component={ListNews} />
+      <Route path="/news/:id" component={News} />
     </BrowserRouter>
-
   )
-
-
-  
 }
 
 export default Routes;

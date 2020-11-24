@@ -1,37 +1,27 @@
 import React, { useState, useEffect } from 'react';
 import { ReadNewsStyled } from './style'
-import Header from '../Header'
+import Header from '../../Components/Header'
 import User from '../../assents/user.png'
 import api from '../../services/api';
 
-// import { Container } from './styles';
 
-function ReadNews({
-
-  match
-
-}) {
+function News({ match }) {
 
   const [news, setNews] = useState('');
   const [text, setText] = useState('');
   const [comments, setComments] = useState([]);
 
-
   const submitComments = () => {
     api.post('/comments', { text, news_id: match.params.id }).then(resp => {
       if (resp.data.success) {
-      setText('')
-      setComments([resp.data.comment, ...comments])
-      return alert('Comentario Adicionado.');
-      
-
+        setText('')
+        setComments([resp.data.comment, ...comments])
+        return alert('Comentario Adicionado.');
       }
-     
     }).catch((err) => {
       alert('Erro ao adicionar o comentario');
     })
   }
-
 
   useEffect(() => {
     console.log(match.params.id);
@@ -67,8 +57,8 @@ function ReadNews({
           {/* CONTENTS PARA ADICIONAR COMENTARIOS */}
           <div className="comentario">
             <div className="new">
-            <input value={text} onChange={e => setText(e.target.value)} placeholder="Escreva aqui seu comentário..." />
-            <button onClick={submitComments}>Adicionar</button>
+              <input value={text} onChange={e => setText(e.target.value)} placeholder="Escreva aqui seu comentário..." />
+              <button onClick={submitComments}>Adicionar</button>
             </div>
 
 
@@ -95,4 +85,4 @@ function ReadNews({
   )
 }
 
-export default ReadNews;
+export default News;
