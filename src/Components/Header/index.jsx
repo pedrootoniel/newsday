@@ -23,9 +23,11 @@ function Header() {
     <Container>
 
    <Imglogo src={Logo}/>
+   
+   <input type="search" placeholder="Search News"/>
 
 { !auth.authUser.authenticated &&   <Nav>
-    <Button onClick={()=> setSingupVisible(true)}>Criar Conta</Button>
+    <Button onClick={()=> setSingupVisible(true)}>Singup</Button>
     {
       singupVisible &&
       <Singup onClose={()=> setSingupVisible(false)}/>
@@ -34,7 +36,7 @@ function Header() {
     }
 
 
-    <Button onClick={()=> setLoginVisible(true)}>Fazer Login</Button>
+    <Button onClick={()=> setLoginVisible(true)}>Login</Button>
     {
       loginVisible &&
       <Login onClose={()=> setLoginVisible(false)}/>
@@ -48,17 +50,17 @@ function Header() {
 
 { auth.authUser.authenticated &&   
     <Nav>
-    <Link to="/">Notícias</Link>
+    <Link to="/">Home</Link>
   
 
-
-    <Link to="/profile/user">Meus Dados</Link>
+    <Link to="/">My News</Link>
+    <Link to="/profile/">Profile</Link>
 
     <Button onClick={()=> {
       localStorage.removeItem('userId');
       auth.setAuthUser({ authenticated: false})
       
-    }}>Sair</Button>
+    }}>Logout</Button>
 
 
     </Nav>}

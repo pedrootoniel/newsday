@@ -21,7 +21,7 @@ function ListNews() {
       if (resp.data.success) return setNews(resp.data.news);
       alert(resp.data.message);
     }).catch((err) => {
-      alert('Erro ao buscar a lista de notícias');
+      alert('Error fetching News list');
     });
   }, []);
 
@@ -31,12 +31,12 @@ function ListNews() {
       <CenterStyled>
         <BoxNews>
 
-<span>Últimas notícias</span>
+<span>Last News</span>
 <br />
-<p>Seja Bem Vindo ao Nosso Site de Notícias, Cadastra-se e fique por dentro de tudo !!</p>
+<p>Welcome to Website for News</p>
 
 { authUser.authenticated &&
-  <Button onClick={()=> setNewsVisible(true)}>Adicionar Notícia.</Button>
+  <Button onClick={()=> setNewsVisible(true)}>Add New News.</Button>
 
 }
     {
@@ -55,7 +55,7 @@ function ListNews() {
               <div className="paragrafo">
                 <strong>{newsMap.title}</strong>
                 <p>{newsMap.content}</p>
-                <span>Ler Notícia completa</span>
+                <span>Read complete News</span>
               </div>
               
             </Link>
@@ -75,7 +75,7 @@ function ListNews() {
               <div className="paragrafo">
                 <strong>{newsMap.title}</strong>
                 <p>{newsMap.content}</p>
-                <span>Ler Notícia completa</span>
+                <span>Read complete News</span>
               </div>
               
             </Link>

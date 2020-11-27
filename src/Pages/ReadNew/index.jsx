@@ -3,16 +3,19 @@ import { ReadNewsStyled } from './style'
 import Header from '../../Components/Header'
 import User from '../../assents/user.png'
 import api from '../../services/api';
+import {useAuth} from '../../App'
 
 
-function News({ match }) {
+function ReadNews({ match }) {
+
+  const {authUser} = useAuth()
 
   const [news, setNews] = useState('');
   const [text, setText] = useState('');
   const [comments, setComments] = useState([]);
 
   const submitComments = () => {
-    api.post('/comments', { text, news_id: match.params.id }).then(resp => {
+    api.post('/comments', { text, news_id: match.params.id,user_id: authUser.userId }).then(resp => {
       if (resp.data.success) {
         setText('')
         setComments([resp.data.comment, ...comments])
@@ -65,9 +68,9 @@ function News({ match }) {
             {
               comments.map(comment => (
                 <div className="image-user" key={comment.id}>
-                  <img src={User} />
+                  <img src={comment.user_photo ||User} />
                   <div className="user-comentario">
-                    <strong>Carrefour</strong>
+                    <strong>{comment.user_name}</strong>
                     <p>{comment.text}</p>
                   </div>
 
@@ -84,4 +87,4 @@ function News({ match }) {
   )
 }
 
-export default News;
+export default ReadNews;

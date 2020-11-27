@@ -78,8 +78,8 @@ export const ReadNewsStyled = styled.div`
 
             &:hover{
                 font-size:20px;
-                color:red;
-                background:black;
+                color:white;
+                transition: 0;
             }
 
         }

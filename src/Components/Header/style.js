@@ -18,6 +18,16 @@ export const Container = styled.div`
     background:#ffffff;
     height:80px;
     box-shadow:2px 2px 2px 1px rgba(0,0,0,.2);
+
+    input{
+
+      height:40px;
+      width:150px;
+      outline:none;
+      padding: 0 20px;
+      border-radius:30px;
+
+    }
 `
 export const Button = styled.button`
 
