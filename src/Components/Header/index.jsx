@@ -1,12 +1,21 @@
 import React,{useState} from 'react';
-import { HeaderStyled,Imglogo,Container,Button } from './style'
+import { HeaderStyled,Imglogo,Container,Button,Nav } from './style'
 import Logo from '../../assents/logo.png'
-import News from '../../Components/News'
+import Singup from '../../Components/Singup'
+import Login from '../../Components/Login'
+
+import { useAuth } from '../../App'
 
 // import { Container } from './styles';
 
 function Header() {
-  const [newsVisible, setNewsVisible]= useState(false)
+
+  const auth = useAuth();
+
+  const [loginVisible, setLoginVisible]= useState(false)
+  const [singupVisible, setSingupVisible]= useState(false)
+
+
   return(
 <HeaderStyled>
 
@@ -14,14 +23,45 @@ function Header() {
 
    <Imglogo src={Logo}/>
 
-   
-    <Button type="text" onClick={()=> setNewsVisible(true)}>Adicionar notícia</Button>
+{ !auth.authUser.authenticated &&   <Nav>
+    <Button onClick={()=> setSingupVisible(true)}>Criar Conta</Button>
     {
-      newsVisible &&
-      <News onClose={()=> setNewsVisible(false)}/>
+      singupVisible &&
+      <Singup onClose={()=> setSingupVisible(false)}/>
 
      
     }
+
+
+    <Button onClick={()=> setLoginVisible(true)}>Fazer Login</Button>
+    {
+      loginVisible &&
+      <Login onClose={()=> setLoginVisible(false)}/>
+
+
+     
+    }
+
+
+    </Nav>}
+
+{ auth.authUser.authenticated &&   
+    <Nav>
+    <Button>Notícias</Button>
+  
+
+
+    <Button>Meus Dados</Button>
+
+    <Button onClick={()=> {
+      localStorage.removeItem('userId');
+      auth.setAuthUser({ authenticated: false})
+      
+    }}>Sair</Button>
+
+
+    </Nav>}
+
 
     </Container>
 
@@ -34,4 +74,5 @@ function Header() {
 
   }
 }
+
 export default Header;

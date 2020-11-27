@@ -2,8 +2,12 @@ import React, { useRef, useState } from 'react';
 import api from '../../services/api';
 import { NewsStyled } from './style';
 import Logo from '../../assents/era.png';
+import {useAuth} from '../../App'
+
 
 const News = ({ id = "modal", onClose = () => { } }) => {
+
+  const { authUser} = useAuth()
 
   const refInputFile = useRef();
   const [fileName, setFilename] = useState('');
@@ -23,6 +27,8 @@ const News = ({ id = "modal", onClose = () => { } }) => {
     formData.append('title', title);
     formData.append('content', content);
     formData.append('file', refInputFile.current.files[0]);
+    formData.append('user_id', authUser.userId);
+    
 
     api.post('/news/', formData).then((resp) => {
 

@@ -1,12 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { CenterStyled } from './style';
-import Header from '../Header';
+import { CenterStyled,BoxNews,Button } from './style';
+import Header from '../../Components/Header';
 import api from '../../services/api';
+import News from '../../Components/News'
+import {useAuth} from '../../App'
 
 function Center() {
 
-  const [news, setNews] = useState([]);
+  const {authUser} = useAuth()
+
+  const [newsVisible, setNewsVisible] = useState(false)
+  const [news, setNews] = useState([])
 
   useEffect(() => {
     api.get('/news').then((resp) => {
@@ -26,6 +31,23 @@ function Center() {
     <>
       <Header />
       <CenterStyled>
+        <BoxNews>
+
+<span>Últimas notícias</span>
+
+{ authUser.authenticated &&
+  <Button onClick={()=> setNewsVisible(true)}>Adicionar Notícia.</Button>
+
+}
+    {
+      newsVisible &&
+      <News onClose={()=> setNewsVisible(false)}/>
+
+     
+    }
+
+        </BoxNews>
+        
 
         {
           news.map(newsMap => (

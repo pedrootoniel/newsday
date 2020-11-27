@@ -46,21 +46,32 @@ export const Button = styled.button`
                     height:40px;
                     font-size:20px;
                     border-radius:30px;
-                    color:white;
-                    background: #53B4CF;
+                    padding:0 20px;
+                    margin-right:10px;
+                    color:black;
                     outline:none;
+                    cursor:pointer;
+                    background:#4444;
+               :hover{
+                     
+                       color:white;
+               }
 
-                    &:hover{
 
-                        
-                        color:white;
-                        background: black;
-
-                    }
 
 
 
 `
 
+export const Nav = styled.div`
 
+        display:flex;
+        align-items:center;
+
+
+
+
+
+
+`
 

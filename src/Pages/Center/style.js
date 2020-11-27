@@ -6,6 +6,7 @@ export const CenterStyled = styled.div `
         flex-direction:column;
         justify-content:center;
         align-items:center;
+        padding:20px;
 
 
             a{
@@ -71,6 +72,44 @@ export const CenterStyled = styled.div `
             }
             
             }
+
+
+
+`
+
+export const BoxNews = styled.div`
+
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        padding:20px;
+        height:112px;
+        width:760px;
+        background:white;
+        border-radius: 30px;  
+        font-size:24px; 
+
+
+`
+
+export const Button = styled.button`
+
+            align-self: flex-end;
+            height:45px;
+            color:white;
+            outline:none;
+            padding:10px;
+            border:0;
+            border-radius: 30px;
+            background:#53B4CF;
+            margin-top:45px;
+
+            :hover{
+
+                background:black;
+                color:white;
+            }
+
 
 
 

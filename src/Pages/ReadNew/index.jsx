@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ReadNewsStyled } from './style'
-import Header from '../Header'
+import Header from '../../Components/Header'
 import User from '../../assents/user.png'
 import api from '../../services/api';
 
