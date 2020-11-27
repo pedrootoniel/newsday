@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const NewsStyled = styled.div `
+export const NewsStyled = styled.div`
                 
     .center{
                     top:0;
@@ -226,7 +226,7 @@ background: #53B4CF;
 }
 
 
-   
+
 
 
 }
