@@ -5,9 +5,13 @@ import { MdAddAPhoto, MdClose } from 'react-icons/md'
 import { FiAlertTriangle } from 'react-icons/fi'
 import {ContainerProfile,Wrapper,Span,ImgProfile,Inputs,Input,Button} from '../../Pages/Profile/style'
 import api from '../../services/api'
+import {useAuth} from '../../App'
 
 
   function Profile({ match }) {
+
+    const {authUser} = useAuth()
+
     const inputFile = useRef(null)
     const [name, setName] = useState('')
     const [email, setEmail] = useState('')
@@ -18,7 +22,7 @@ import api from '../../services/api'
     const [confNewPass, setConfNewPass] = useState('')
   
     useEffect(() => {
-      api.get(`/users/${match.params.id}`).then(resp => {
+      api.get(`/users/${authUser.userId}`).then(resp => {
         setName(resp.data.user.name)
         setEmail(resp.data.user.email)
         setFile(resp.data.user.image)

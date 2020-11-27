@@ -1,5 +1,5 @@
-<<<<<<< HEAD
 import React,{useState} from 'react';
+import { Link } from 'react-router-dom'
 import { HeaderStyled,Imglogo,Container,Button,Nav } from './style'
 import Logo from '../../assents/logo.png'
 import Singup from '../../Components/Singup'
@@ -48,11 +48,11 @@ function Header() {
 
 { auth.authUser.authenticated &&   
     <Nav>
-    <Button>Notícias</Button>
+    <Link to="/">Notícias</Link>
   
 
 
-    <Button>Meus Dados</Button>
+    <Link to="/profile">Meus Dados</Link>
 
     <Button onClick={()=> {
       localStorage.removeItem('userId');
@@ -68,30 +68,7 @@ function Header() {
 
 </HeaderStyled>
 
-
-=======
-import React, { useState } from 'react';
-import { HeaderStyled, Imglogo, Container, Button } from './style'
-import Logo from '../../assents/logo.png'
-import ModalNews from '../../Components/ModalNews'
-
-function Header() {
->>>>>>> e5b260e311491ff955c428d0ce4a7d5e6e52cc9b
-
-  const [newsVisible, setNewsVisible] = useState(false)
-
-  return (
-    <HeaderStyled>
-      <Container>
-        <Imglogo src={Logo} />
-        <Button type="text" onClick={() => setNewsVisible(true)}>Adicionar notícia</Button>
-        {
-          newsVisible &&
-          <ModalNews onClose={() => setNewsVisible(false)} />
-        }
-      </Container>
-    </HeaderStyled>
-  )
+)
 }
 
 export default Header;

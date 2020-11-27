@@ -2,7 +2,6 @@ import React,{ useContext, createContext, useState, useEffect } from 'react'
 import Global from './global'
 import Routes from './Routes'
 
-<<<<<<< HEAD
 const AuthContext = createContext();
 
 
@@ -31,15 +30,8 @@ useEffect(() => {
     <AuthContext.Provider value={{ authUser, setAuthUser }}>
     <div className="App">
       <Global/>
-      <Routes />
+      <Routes authUser={authUser} />
       {/* <Profile/> */}
-=======
-function App() {
-  return (
-    <div className="App">
-      <Routes />
-      <Global />
->>>>>>> e5b260e311491ff955c428d0ce4a7d5e6e52cc9b
     </div>
     </AuthContext.Provider>
 

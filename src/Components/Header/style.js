@@ -5,13 +5,11 @@ import styled from 'styled-components'
 export const HeaderStyled = styled.div`
     background: white;
 `
-
 export const Imglogo = styled.img`
     object-fit:cover;
     width:200px;
     height:60px;
 `
-
 export const Container = styled.div`
     display:flex;
     justify-content:space-between;
@@ -21,9 +19,7 @@ export const Container = styled.div`
     height:80px;
     box-shadow:2px 2px 2px 1px rgba(0,0,0,.2);
 `
-
 export const Button = styled.button`
-<<<<<<< HEAD
 
                     border:0;
                     width:181px;
@@ -40,26 +36,6 @@ export const Button = styled.button`
                      
                        color:white;
                }
-
-
-
-
-
-=======
-    border:0;
-    width:181px;
-    height:40px;
-    font-size:20px;
-    border-radius:30px;
-    color:white;
-    background: #53B4CF;
-    outline:none;
-
-    &:hover{
-        color:white;
-        background: black;
-    }
->>>>>>> e5b260e311491ff955c428d0ce4a7d5e6e52cc9b
 `
 
 export const Nav = styled.div`
@@ -67,10 +43,29 @@ export const Nav = styled.div`
         display:flex;
         align-items:center;
 
+        a{
+                    display:flex;
+                    justify-content:center;
+                    align-items:center;
+                    border:0;
+                    width:180px;
+                    padding: 8px 0;
+                    border-radius:30px;
+                    max-height:25px;
+                    margin:0 10px;
+                    font-size:20px;
+                    color:black;
+                    background:#4444;
+                    cursor:pointer;
+                    outline:none;
+                    text-decoration:none;
+
+               :hover{
+                     
+                       color:white;
+               }
 
 
-
-
+        }       
 
 `
-

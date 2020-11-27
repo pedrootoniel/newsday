@@ -73,7 +73,6 @@ function News({ match }) {
 
                 </div>
 
-
               ))
             }
           </div>

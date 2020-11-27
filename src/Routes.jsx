@@ -1,35 +1,26 @@
 import React from 'react';
-<<<<<<< HEAD
-import { BrowserRouter,Route } from 'react-router-dom'
+import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom'
 import Center from './Pages/Center'
 import ReadNews from './Pages/ReadNew'
 import Profile from './Pages/Profile'
 
 
 
-// import { Container } from './styles';
-=======
-import { BrowserRouter, Route } from 'react-router-dom'
-import ListNews from './pages/ListNews'
-import News from './pages/News'
->>>>>>> e5b260e311491ff955c428d0ce4a7d5e6e52cc9b
 
-function Routes() {
+// import { Container } from './styles';
+
+function Routes({ authUser }) {
+
   return (
     <BrowserRouter>
-<<<<<<< HEAD
+      <Switch>
         <Route path="/" exact component={Center} />
-
-        <Route path="/news/:id" component={ReadNews} />
-
-        <Route path="/profile/:id" component={Profile} />
-
-=======
-      <Route path="/" exact component={ListNews} />
-      <Route path="/news/:id" component={News} />
->>>>>>> e5b260e311491ff955c428d0ce4a7d5e6e52cc9b
+        <Route path="/news/:id" component={(props) => {
+          return authUser.authenticated ? <ReadNews {...props} /> : <Redirect to='/' />
+        }} />
+        <Route path="/profile/" component={(props) => authUser.authenticated ? <Profile {...props} /> : <Redirect to='/' />} />
+      </Switch>
     </BrowserRouter>
   )
 }
-
 export default Routes;

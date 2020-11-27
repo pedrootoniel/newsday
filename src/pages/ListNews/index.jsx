@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-<<<<<<< HEAD:src/Pages/Center/index.jsx
 import { CenterStyled,BoxNews,Button } from './style';
-=======
-import { CenterStyled } from './style';
->>>>>>> e5b260e311491ff955c428d0ce4a7d5e6e52cc9b:src/pages/ListNews/index.jsx
 import Header from '../../Components/Header';
 import api from '../../services/api';
 import News from '../../Components/News'
@@ -30,7 +26,6 @@ function ListNews() {
     <>
       <Header />
       <CenterStyled>
-<<<<<<< HEAD:src/Pages/Center/index.jsx
         <BoxNews>
 
 <span>Últimas notícias</span>
@@ -49,8 +44,6 @@ function ListNews() {
         </BoxNews>
         
 
-=======
->>>>>>> e5b260e311491ff955c428d0ce4a7d5e6e52cc9b:src/pages/ListNews/index.jsx
         {
           news.map(newsMap => (
             <Link to={`/news/${newsMap.id}`} key={newsMap.id}>
