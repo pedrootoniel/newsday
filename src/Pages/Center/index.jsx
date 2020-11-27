@@ -1,17 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { CenterStyled,BoxNews,Button } from './style';
+import { CenterStyled, BoxNews, Button } from './style';
 import Header from '../../Components/Header';
 import api from '../../services/api';
-import News from '../../Pages/News'
-import {useAuth} from '../../App'
+import News from '../News'
+import { useAuth } from '../../App'
 import Login from '../../Components/Login'
 
 function ListNews() {
 
-  const {authUser} = useAuth()
+  const { authUser } = useAuth()
 
-  const [loginVisible, setLoginVisible]= useState(false)
+  const [loginVisible, setLoginVisible] = useState(false)
 
   const [newsVisible, setNewsVisible] = useState(false)
   const [news, setNews] = useState([])
@@ -31,61 +31,61 @@ function ListNews() {
       <CenterStyled>
         <BoxNews>
 
-<span>Last News</span>
-<br />
-<p>Welcome to Website for News</p>
+          <span>Last News</span>
+          <br />
+          <p>Welcome to Website for News</p>
 
-{ authUser.authenticated &&
-  <Button onClick={()=> setNewsVisible(true)}>Add New News.</Button>
+          {authUser.authenticated &&
+            <Button onClick={() => setNewsVisible(true)}>Add New News.</Button>
 
-}
-    {
-      newsVisible &&
-      <News onClose={()=> setNewsVisible(false)}/>
+          }
+          {
+            newsVisible &&
+            <News onClose={() => setNewsVisible(false)} />
 
-     
-    }
+
+          }
 
         </BoxNews>
 
-        {  !authUser.authenticated &&
+        {!authUser.authenticated &&
           news.map(newsMap => (
-            <Link key={newsMap.id} onClick={()=> setLoginVisible(true)}>
+            <Link key={newsMap.id} onClick={() => setLoginVisible(true)}>
               <img src={newsMap.image}></img>
               <div className="paragrafo">
                 <strong>{newsMap.title}</strong>
                 <p>{newsMap.content}</p>
                 <span>Read complete News</span>
               </div>
-              
+
             </Link>
 
           ))
         }
-      {
-      loginVisible &&
-      <Login onClose={()=> setLoginVisible(false)}/>
-      }
+        {
+          loginVisible &&
+          <Login onClose={() => setLoginVisible(false)} />
+        }
 
 
-        {  authUser.authenticated &&
+        {authUser.authenticated &&
           news.map(newsMap => (
-            <Link to={`/news/${newsMap.id}`} key={newsMap.id} onClick={()=> setLoginVisible(true)}>
+            <Link to={`/news/${newsMap.id}`} key={newsMap.id} onClick={() => setLoginVisible(true)}>
               <img src={newsMap.image}></img>
               <div className="paragrafo">
                 <strong>{newsMap.title}</strong>
                 <p>{newsMap.content}</p>
                 <span>Read complete News</span>
               </div>
-              
+
             </Link>
 
           ))
         }
-      {
-      loginVisible &&
-      <Login onClose={()=> setLoginVisible(false)}/>
-      }
+        {
+          loginVisible &&
+          <Login onClose={() => setLoginVisible(false)} />
+        }
 
       </CenterStyled>
     </>

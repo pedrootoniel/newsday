@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Route, Redirect, Switch } from 'react-router-dom'
-import Center from './Pages/Center'
-import ReadNews from './Pages/ReadNew'
-import Profile from './Pages/Profile'
+import Center from './pages/Center'
+import ReadNews from './pages/ReadNew'
+import Profile from './pages/Profile'
 
 
 
