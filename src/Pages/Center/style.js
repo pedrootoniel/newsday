@@ -89,6 +89,10 @@ export const BoxNews = styled.div`
         border-radius: 30px;  
         font-size:24px; 
 
+        p{
+          font-size:16px;
+        }
+
 
 `
 
@@ -102,7 +106,7 @@ export const Button = styled.button`
             border:0;
             border-radius: 30px;
             background:#53B4CF;
-            margin-top:45px;
+            margin-top:10px;
 
             :hover{
 

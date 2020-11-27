@@ -52,7 +52,7 @@ function Header() {
   
 
 
-    <Link to="/profile">Meus Dados</Link>
+    <Link to="/profile/user">Meus Dados</Link>
 
     <Button onClick={()=> {
       localStorage.removeItem('userId');
